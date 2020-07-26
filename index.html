@@ -1,0 +1,123 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>aLay t3XT g3NEratoR</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/south-street/jquery-ui.css"> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            body{ 
+                background-color: #222; 
+                color: #ccc;
+                font-family: 'Open Sans';
+                font-weight: 400;
+                font-stretch: normal;
+                font-size: 13.3333px;
+            }
+            textarea { 
+                text-transform:lowercase;
+                background-color: #333333; 
+                border: 1px solid #555; 
+                border-radius: 5%;
+                font: 400 13.3333px Helvetica;
+                color: #e6e6e6;
+                font-style: normal;
+                font-variant-ligatures: normal;
+                font-variant-caps: normal;
+                font-variant-numeric: normal;
+                font-variant-east-asian: normal;
+                font-weight: 400;
+                font-stretch: normal;
+                font-size: 13.3333px;
+            } 
+        </style>
+    </head>
+    <body>
+        <div>COB4 Q4MV mAzvkk3n cH4tMv KSnI3</div>
+        <textarea name="" id="text" cols="30" rows="10"></textarea>
+        <!-- <input type="text" id="text"/> -->
+        <div>iN1 DI4 H4zz1l'x</div>
+        <textarea name="" id="result" cols="30" rows="10"></textarea>
+    </body>
+
+    <!-- script document is ready -->
+    <script>
+        
+        $(function () {
+            function forceLower(strInput) {
+                strInput = strInput.toLowerCase();
+            }
+                function randomizeStrIdx(chars){
+                // shuffle the index
+                var charsSize = charset[chars].length;
+                var shuffledIdx = Math.floor(Math.random() * charsSize);
+                return shuffledIdx;
+            }
+
+            function randomizeNya(chars){
+                var charsSize =  nyaset.length;
+                charsSize = charsSize - 1;
+                var shuffledIdx = Math.floor(Math.random() * charsSize);
+                return shuffledIdx;
+            }
+            function randomizeKu(chars){
+                var charsSize =  nyaset.length;
+                charsSize = charsSize - 1;
+                var shuffledIdx = Math.floor(Math.random() * charsSize);
+                return shuffledIdx;
+            }
+
+            var charset = {
+                'a': ['a', 'A', '4'],
+                'b': ['b', 'B'],
+                'c' : ['c', 'C'],
+                'd' : ['d', 'D'],
+                'e' : ['3', 'e', 'E'],
+                'f' : ['f', 'F'],
+                'g' : ['6', '9', 'g', 'G'],
+                'h' : ['h', 'H'],
+                'i' : ['1', 'i', 'I'],
+                'j' : ['j', 'J'],
+                'k' : ['k', 'K'],
+                'l' : ['l', 'L'],
+                'm' : ['m', 'M'],
+                'n' : ['n', 'N'],
+                'o' : ['0', 'o', 'O'],
+                'p' : ['p', 'P'],
+                'q' : ['q', 'Q'],
+                'r' : ['r', 'R'],
+                's' : ['5', 's', 'S','s', 'S', 'z', 'zz'],
+                't' : ['t', 'T'],
+                'u' : ['u', 'U', 'v', 'V'],
+                'v' : ['v', 'V'],
+                'w' : ['w', 'W', 'vv'],
+                'x' : ['x', 'X'],
+                'y' : ['y', 'Y', 'ia'],
+                'z' : ['z', 'Z']
+            }
+            var nyaset = ['nya', 'nya','nya','nya', 'x', "'x",'na', "'a"];
+            var kuset = ['ku', 'ku', 'ku', 'ku', 'qu', 'q', 'kuw', 'quw', 'qhu', "'q"];
+            var tesstring;
+            // title = title.replace(/[abcdefghijklmnopqrstuvwxyz]/gi, m => charset[m][randomizeStrIdx(m)]);
+            
+            $('#text').bind('input propertychange', function (e) {
+            // console.log(this.value);
+            tesstring = String($('#text').val()).toLowerCase();
+                // function to convert string randomize
+                tesstring = tesstring.replace(/nya/gi, m => nyaset[randomizeNya(m)]);
+                tesstring = tesstring.replace(/nya/gi, m => nyaset[randomizeKu(m)]);
+                tesstring = tesstring.replace(/[abcdefghijklmnopqrstuvwxyz]/gi, m => charset[m][randomizeStrIdx(m)]);
+                $('#result').val(tesstring);
+        });
+        
+        });
+
+
+    </script>
+
+    </html>
